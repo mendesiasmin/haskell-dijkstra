@@ -15,5 +15,5 @@ Para executar o programa, deve-se seguir os seguintes passos:
 1. Acessar a pasta do repositório no seu computador
 1. Executar o comando **ghci** pelo terminal
 1. Dentro do console do haskell, execute **:l Dijkstra.hs**
-1. Uma vez que os módulos foram carregados, execute **dijkstra <nome-do-no-de-origem> <lista-de-nos> <grafo>** que será calculado o custo para todos os nós da rede a partir do nó de origem selecionado.
+1. Uma vez que os módulos foram carregados, execute **dijkstra < nome-do-no-de-origem > < lista-de-nos> <grafo >** que será calculado o custo para todos os nós da rede a partir do nó de origem selecionado.
   1. Com os inputs de teste que já estão definidos no modulo Input, a execução seria: **dijkstra node_a nodes graph**
