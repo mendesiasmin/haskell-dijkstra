@@ -72,12 +72,13 @@ visit_minor :: Edge -> Cost -> Graph -> [Edge]
 visit_minor minor costs graph = do let new_costs = (remove_cost minor costs) ++ [visit minor True]
                                    update_weights minor graph new_costs
 
-calc :: Cost -> Cost
-calc [] = []
-calc edges = do let minor = minimum_cost edges
-                if minor == NoEdge then edges
-                else calc (visit_minor minor edges graph)
+calc :: Cost -> Graph -> Cost
+calc [] _ = []
+calc _ [] = []
+calc edges graph = do let minor = minimum_cost edges
+                      if minor == NoEdge then edges
+                      else calc (visit_minor minor edges graph) graph
 
 dijkstra :: Node -> [Node] -> Graph -> Cost
 dijkstra node nodes graph = do let costs = initialize node nodes graph
-                               calc costs
+                               calc costs graph
