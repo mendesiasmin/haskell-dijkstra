@@ -8,7 +8,7 @@ data Edge = NoEdge
           |  Edge Node Node Int Bool deriving (Eq)
 
 instance Show Edge where
-  show  (Edge origin destiny weight visited) = (show origin) ++ " to " ++ (show destiny) ++ " cust " ++ (weight_to_s weight)
+  show  (Edge origin destiny weight visited) = (show origin) ++ " to " ++ (show destiny) ++ " cust " ++ (weight_to_s weight) ++ "\n"
 
 weight_to_s :: Int -> String
 weight_to_s weight | weight == ifinity = "ifinity"
@@ -83,7 +83,4 @@ remove_edges_from NoEdge _ = []
 remove_edges_from _ [] = []
 remove_edges_from edge (x:y) | (destiny edge) == (origin x) = remove_edges_from edge y
                              | otherwise = [x] ++ (remove_edges_from edge y)
-
-
--- Functions to update edges in array ===================================
 

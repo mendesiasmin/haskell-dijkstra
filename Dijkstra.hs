@@ -77,3 +77,7 @@ calc [] = []
 calc edges = do let minor = minimum_cost edges
                 if minor == NoEdge then edges
                 else calc (visit_minor minor edges graph)
+
+dijkstra :: Node -> [Node] -> Graph -> Cost
+dijkstra node nodes graph = do let costs = initialize node nodes graph
+                               calc costs
