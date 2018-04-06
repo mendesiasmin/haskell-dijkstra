@@ -5,7 +5,14 @@ import Node
 ifinity = -1
 
 data Edge = NoEdge
-          |  Edge Node Node Int Bool deriving (Show, Eq)
+          |  Edge Node Node Int Bool deriving (Eq)
+
+instance Show Edge where
+  show  (Edge origin destiny weight visited) = (show origin) ++ " to " ++ (show destiny) ++ " cust " ++ (weight_to_s weight)
+
+weight_to_s :: Int -> String
+weight_to_s weight | weight == ifinity = "ifinity"
+                   | otherwise = show weight
 
 -- Functions to get attributes ======================================
 
